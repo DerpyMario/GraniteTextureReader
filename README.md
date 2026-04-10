@@ -9,7 +9,7 @@ It is known to be used in:
 * [Baldur's Gate 3](https://steamdb.info/app/1086940/) (same as above)
 * [Conan Exiles](https://steamdb.info/app/440900/) (Unreal)
 * [Mount & Blade II: Bannerlord](https://steamdb.info/app/261550/) (Unreal)
-* [Raw Data](https://steamdb.info/app/436320/depots/) (Unreal, old Granite version)
+* [Raw Data](https://steamdb.info/app/436320/) (Unreal, old Granite version)
 * The very few Unity games that opt-in to use [Streaming Virtual Texturing](https://docs.unity3d.com/Manual/svt-streaming-virtual-texturing.html), which has been marked as experimental for years and at this point abandoned yet still available
 
 ### Features
