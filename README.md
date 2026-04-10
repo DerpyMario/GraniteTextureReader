@@ -5,10 +5,11 @@ Texture Reader/Extractor for [Granite SDK](https://web.archive.org/web/202402290
 The Granite SDK has long been acquired by Unity and for the most part shelved (main page on the Unity site is gone), so updates to the format are unlikely.
 
 It is known to be used in:
-* Granblue Fantasy: Relink (proprietary, long development cycle, likely acquired Granite licensing before Unity acquired it)
-* Baldur's Gate 3 (same as above)
-* Conan Exiles (Unreal)
-* Mount & Blade II: Bannerlord (Unreal)
+* [Granblue Fantasy: Relink](https://steamdb.info/app/881020/) (proprietary, long development cycle, likely acquired Granite licensing before Unity acquired it)
+* [Baldur's Gate 3](https://steamdb.info/app/1086940/) (same as above)
+* [Conan Exiles](https://steamdb.info/app/440900/) (Unreal)
+* [Mount & Blade II: Bannerlord](https://steamdb.info/app/261550/) (Unreal)
+* [Raw Data](https://steamdb.info/app/436320/depots/) (Unreal, old Granite version)
 * The very few Unity games that opt-in to use [Streaming Virtual Texturing](https://docs.unity3d.com/Manual/svt-streaming-virtual-texturing.html), which has been marked as experimental for years and at this point abandoned yet still available
 
 ### Features
