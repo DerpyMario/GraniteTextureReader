@@ -1,40 +1,61 @@
 # GraniteTextureReader
 
-Texture Reader/Extractor for [Granite SDK](https://unity.com/products/granite-sdk) files (.gts/.gtp). This tool was primarly made with Granblue Fantasy: Relink in mind.
+Texture Reader/Extractor for [Granite SDK](https://web.archive.org/web/20240229035708/https://unity.com/products/granite-sdk) files (.gts/.gtp). This tool was primarly made with Granblue Fantasy: Relink in mind, but should also support extracting from Unity games using [Streaming Virtual Texturing](https://docs.unity3d.com/Manual/svt-streaming-virtual-texturing.html).
+
+The Granite SDK has long been acquired by Unity and for the most part shelved (main page on the Unity site is gone), so updates to the format are unlikely.
+
+It is known to be used in:
+* [Granblue Fantasy: Relink](https://steamdb.info/app/881020/) (proprietary, long development cycle, likely acquired Granite licensing before Unity acquired it)
+* [Baldur's Gate 3](https://steamdb.info/app/1086940/) (same as above)
+* [Conan Exiles](https://steamdb.info/app/440900/) (Unreal)
+* [Mount & Blade II: Bannerlord](https://steamdb.info/app/261550/) (Unreal)
+* [Raw Data](https://steamdb.info/app/436320/) (Unreal, old Granite version)
+* The very few Unity games that opt-in to use [Streaming Virtual Texturing](https://docs.unity3d.com/Manual/svt-streaming-virtual-texturing.html), which has been marked as experimental for years and at this point abandoned yet still available
+
+### Features
+
+* Extraction of all textures within a Granite SDK tile set (.gts)
+* Extracting specific textures within a tile set
+* Downgrading a tile set from version 6 to 5 for use within the Granite Tile Set viewer
+* Extracting project files out of tile set files (if the tile set was not built as release/unstripped)
 
 > [!IMPORTANT]  
 > Only version 6 `.gts` files are currently supported. (Version can be viewed at 0x04 in the .gts files)
 
-Layer Numbers
-* `-1` 	- Extracts all Texture layers
-* `0` 	- Extract Albedo map layer
-* `1` 	- Extract Normal map layer
-* `2` 	- Extract RGB Mask 1 map layer
-* `3` 	- Extract RGB Mask 2 map layer
+> [!WARNING]
+> This project is currently in stand-by and will not currently receive updates unless contributions are made (which are welcome).
 
-### Extract Single Texture from .gts
-```
-GraniteTextureReader.exe extract -t "<path to .gts>" -f "<granite texture name>" -l <layer number>
-```
+## Usage
 
-### Extract All Textures from .gts
+Get the latest version in [**Releases**](https://github.com/Nenkai/GraniteTextureReader/releases).
+
+To extract a tile set in its entirety, run the command with:
+
 ```
-GraniteTextureReader.exe extract-all -t "<path to .gts>" -l <layer number>
+GraniteTextureReader extract-all --tileset <path_to_gts_file> [--layer <layer>]
 ```
 
-## File types
-* `.gts` - Tile Set
-* `.gtp` - Page File
+* Replace `<path_to_gts_file>` with the path to the GTS file
+* **Optionally** also provide `--layer` to extract a specific tile set layer. **By default all are extracted.** Different layers are intended for different types of textures, so a simple example would be texture layer 0 being Albedo map, 1 being Normal map. Up to 3. 
 
-## Finding a model's textures
-If you need to find a certain model's textures you'll need to run download and run flatc with the MMat_ModelMaterial.fbs file.
+More commands are available by just running the command and reading the command/verb listing.
 
-1. Download Windows.flatc.binary.zip from [here](https://github.com/google/flatbuffers/releases/tag/v23.5.26), and extract it anywhere.
+## Documentation
 
-2. Download MMat_ModelMaterial.fbs from [here](https://github.com/Nenkai/010GameTemplates/blob/main/Cygames/Granblue%20Fantasy%20-%20Relink/MMat_ModelMaterial.fbs).
+File format documentation/010 Editor Template is available [here](https://github.com/Nenkai/010GameTemplates/blob/main/Graphine/Granite%20SDK/TileSet_GTS.bt).
 
-3. Run `flatc.exe --json "<path_to_MMat_ModelMaterial.fbs>" -- "<path_to_mmat_file>" --raw-binary`, and a JSON file will be spat out into the flatc directory.
+The official website used to sit at https://graphinesoftware.com/
 
-4. Open the JSON file and search for the texture group you wish to edit (ex: pl0001_hair). A little below it should be a section called `Granite`. 
+* [Archived Homepage](https://web.archive.org/web/20210926130802/http://graphinesoftware.com:80/granite-sdk)
+* [SDK PDF](https://web.archive.org/web/20240629135242/https://graphinesoftware.com/sites/default/files/shared/whitepaper_granite_sdk5.pdf)
+* [More Details](https://web.archive.org/web/20181220200828/https://graphinesoftware.com/texture-streaming)
+* [More Details 2](https://web.archive.org/web/20210616105443/http://graphinesoftware.com:80/our-technology/how-it-works)
+* [Use Cases](https://web.archive.org/web/20210616111752/http://graphinesoftware.com:80/our-technology/use-cases)
 
-5. Copy the very long `PageFile` string, and use it as the `"<granite texture name>"` for the Extract Single Texture from .gts command.
+Other libraries that can handle creating such files:
+* [BG3VTexSuite](https://github.com/Brucephalus/BG3VTexSuite/tree/a8a96277c6f21db4c598faf3cb1a7541ff94c48e), which quite literally seems to contain the proprietary official SDK tools (Graphine Granite Toolset V5) along with traces of decompilation attempts. [original readme before it was deleted](https://github.com/Brucephalus/BG3VTexSuite/commit/8938f15942d38774eca2a91a477f86a03b3871ce)
+* [LSLib](https://github.com/Norbyte/lslib), for creating tile sets for BG3
+
+## Building
+
+Requires **.NET 9.0** (VS2022).

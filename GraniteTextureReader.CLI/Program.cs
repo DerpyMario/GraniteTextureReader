@@ -9,9 +9,9 @@ using GraniteLib.TileSet;
 
 namespace GraniteTextureReader.CLI;
 
-internal class Program
+public class Program
 {
-    public const string Version = "1.1.2";
+    public const string Version = "1.1.5";
 
     //======================
     //Main Program
@@ -84,6 +84,11 @@ internal class Program
             Console.WriteLine($"ERROR: Tile set file '{verbs.TileSetPath}' does not exist.");
             return;
         }
+
+        if (string.IsNullOrEmpty(verbs.OutputDir))
+            verbs.OutputDir = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(verbs.TileSetPath)), "_extracted");
+
+        Directory.CreateDirectory(verbs.OutputDir);
 
         try
         {
