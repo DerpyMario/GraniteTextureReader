@@ -1,9 +1,13 @@
-﻿using GraniteTextureReader.TileSet;
-using GraniteTextureReader.GDEX;
+﻿// Copyright (c) 2026 Nenkai
+// SPDX-License-Identifier: MIT
 
 using CommandLine;
 
-namespace GraniteTextureReader;
+using GraniteLib;
+using GraniteLib.GDEX;
+using GraniteLib.TileSet;
+
+namespace GraniteTextureReader.CLI;
 
 internal class Program
 {

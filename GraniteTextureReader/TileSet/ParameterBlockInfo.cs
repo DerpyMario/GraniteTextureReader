@@ -1,4 +1,7 @@
-﻿using Syroot.BinaryData;
+﻿// Copyright (c) 2026 Nenkai
+// SPDX-License-Identifier: MIT
+
+using Syroot.BinaryData;
 
 using System;
 using System.Collections.Generic;
@@ -6,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraniteTextureReader.TileSet;
+namespace GraniteLib.TileSet;
 
 public class ParameterBlockInfo
 {

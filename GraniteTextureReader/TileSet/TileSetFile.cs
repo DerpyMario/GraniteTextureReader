@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) 2026 Nenkai
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
@@ -6,10 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-using GraniteTextureReader.GDEX;
+using GraniteLib;
+using GraniteLib.GDEX;
+
 using Syroot.BinaryData;
 
-namespace GraniteTextureReader.TileSet;
+namespace GraniteLib.TileSet;
 
 public class TileSetFile
 {

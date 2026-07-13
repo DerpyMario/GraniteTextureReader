@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) 2026 Nenkai
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +19,11 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Tga;
 
-using GraniteTextureReader.GDEX;
-using GraniteTextureReader.TileSet;
-using GraniteTextureReader.Pages;
+using GraniteLib.TileSet;
+using GraniteLib.Pages;
+using GraniteLib.GDEX;
 
-namespace GraniteTextureReader;
+namespace GraniteLib;
 
 public class GraniteProcessor : IDisposable
 {

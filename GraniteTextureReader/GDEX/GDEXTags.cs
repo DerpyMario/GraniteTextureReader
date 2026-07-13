@@ -1,10 +1,13 @@
-﻿using System;
+﻿// Copyright (c) 2026 Nenkai
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraniteTextureReader.GDEX;
+namespace GraniteLib.GDEX;
 
 public class GDEXTags
 {

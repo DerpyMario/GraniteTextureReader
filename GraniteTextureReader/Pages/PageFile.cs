@@ -1,4 +1,7 @@
-﻿
+﻿// Copyright (c) 2026 Nenkai
+// SPDX-License-Identifier: MIT
+
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,12 +15,14 @@ using Syroot.BinaryData.Memory;
 
 using DotFastLZ.Compression;
 
-using GraniteTextureReader.TileSet;
 using SixLabors.ImageSharp.PixelFormats;
+
 using BCnEncoder.Decoder;
 using BCnEncoder.Shared;
 
-namespace GraniteTextureReader.Pages;
+using GraniteLib.TileSet;
+
+namespace GraniteLib.Pages;
 
 public class PageFile : IDisposable
 {
