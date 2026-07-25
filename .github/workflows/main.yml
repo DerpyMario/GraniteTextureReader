@@ -26,7 +26,7 @@ jobs:
         dotnet-version: '8.0.x'
     
     - name: Restore dependencies
-      run: dotnet restore GraniteTextureReader.sln
+      run: dotnet restore GraniteTextureReader.sln --disable-parallel
     
     - name: Build Library (Release)
       run: dotnet build GraniteTextureReader/GraniteLib.csproj -c Release -f net8.0
