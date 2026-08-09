@@ -291,10 +291,9 @@ jobs:
       # runtime pack and the crossgen2 compiler land in the cache up front,
       # letting the publish below run with --no-restore.
       #
-      # nuget.sixlabors.com (needed for SixLabors.ImageSharp.Textures) has a
-      # history of transient failures, so restore is retried, and the last
-      # attempt tolerates a dead source in case the cache already has the
-      # packages.
+      # A single unreachable source fails the whole restore (NU1301), so it is
+      # retried with backoff; the final attempt tolerates a failed source in
+      # case the cache already holds every package.
       - name: Restore (${{ matrix.rid }})
         shell: bash
         env:
