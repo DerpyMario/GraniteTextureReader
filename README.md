@@ -38,6 +38,25 @@ GraniteTextureReader extract-all --tileset <path_to_gts_file> [--layer <layer>]
 * Replace `<path_to_gts_file>` with the path to the GTS file
 * **Optionally** also provide `--layer` to extract a specific tile set layer. **By default all are extracted.** Different layers are intended for different types of textures, so a simple example would be texture layer 0 being Albedo map, 1 being Normal map. Up to 3. 
 
+### Extracting a folder
+
+To extract every tile set in a folder and its sub-directories:
+
+```
+GraniteTextureReader extract-folder --input <folder> [--layer <layer>] [--output <output_folder>] [--top-level-only] [--yes]
+```
+
+* Output goes to `<folder>/_extracted` by default. Sub-directories are recreated, with one folder per tile set, so `<folder>/World/Terrain.gts` is extracted to `<folder>/_extracted/World/Terrain/`.
+* `--top-level-only` skips sub-directories. `--yes` skips the disk space prompt, for use in scripts.
+* A tile set that fails to extract is reported and skipped without stopping the others. The exit code is non-zero if any failed.
+* Passing a folder to `extract-all --tileset` does the same thing.
+
+### Drag and drop
+
+Drag one or more `.gts` files, or folders containing them, onto `GraniteTextureReader.exe`. Every texture layer is extracted into an `_extracted` folder, created inside a dropped folder or next to a dropped file, with one folder per tile set. The window stays open at the end so the results can be read.
+
+On Linux, dragging a folder into a terminal pastes its path, so `./GraniteTextureReader <folder>` works the same way.
+
 More commands are available by just running the command and reading the command/verb listing.
 
 ## Documentation
